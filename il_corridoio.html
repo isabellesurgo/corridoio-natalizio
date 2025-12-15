@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>Isabelle ❤️ Mitch</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(#7b0000, #c62828);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Neve */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: #fff;
+    font-size: 24px;
+    user-select: none;
+    z-index: 9999;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+h1 {
+    font-weight: normal;
+    margin-top: 40px;
+}
+
+#corridor, .room {
+    min-height: 100vh;
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#corridor.active, .room.active {
+    display: block;
+}
+
+/* Porte */
+.doors {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+
+.door-container {
+    text-align: center;
+}
+
+.door-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.door {
+    width: 140px;
+    height: 240px;
+    background: linear-gradient(#d2691e, #8b4513);
+    border: 4px solid #5a2e0f;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    transition: transform 0.3s;
+}
+
+.door:hover {
+    transform: scale(1.05);
+}
+
+.door::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: gold;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+}
+
+.room p {
+    max-width: 700px;
+    margin: 40px auto;
+    font-size: 22px;
+    line-height: 1.8;
+    animation: fadeIn 2s forwards;
+}
+
+button {
+    margin-top: 40px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #fff;
+    color: #7b0000;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.small {
+    font-size: 16px;
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Neve -->
+<div id="snow"></div>
+
+<!-- CORRIDOIO -->
+<div id="corridor" class="active">
+    <h1>Auguri amore mio! <br>le porte che aprono delle stanze che formano la nostra storia dall'inizio❤️</h1>
+    <p>Scegline una alla volta.</p>
+
+    <div class="doors">
+        <div class="door-container">
+            <div class="door-title">Shiso</div>
+            <div class="door" onclick="openRoom(1)"></div>
+        </div>
+        <div class="door-container">
+            <div class="door-title">Macchina</div>
+            <div class="door" onclick="openRoom(2)"></div>
+        </div>
+        <div class="door-container">
+            <div class="door-title">Traghetto</div>
+            <div class="door" onclick="openRoom(3)"></div>
+        </div>
+        <div class="door-container">
+            <div class="door-title">Sardegna</div>
+            <div class="door" onclick="openRoom(4)"></div>
+        </div>
+        <div class="door-container">
+            <div class="door-title">Distanza</div>
+            <div class="door" onclick="openRoom(5)"></div>
+        </div>
+        <div class="door-container">
+            <div class="door-title">Finale</div>
+            <div class="door" onclick="openRoom(6)"></div>
+        </div>
+    </div>
+</div>
+
+<!-- STANZE -->
+<div class="room" id="room1">
+<p>
+Non ti stavo cercando.<br>
+Stavo solo lavorando.<br><br>
+E invece, dietro un bancone,<br>
+ho trovato qualcuno che mi somigliava.
+</p>
+<button onclick="back()">Torna al corridoio</button>
+</div>
+
+<div class="room" id="room2">
+<p>
+Abbiamo cantato senza accorgerci del tempo.<br>
+Come se fosse sempre stato così.<br><br>
+È lì che ho capito una cosa:<br>
+mi sentivo al sicuro.
+</p>
+<button onclick="back()">Torna al corridoio</button>
+</div>
+
+<div class="room" id="room3">
+<p>
+Due film.<br>
+Una stanza buia.<br>
+Troppe cose non dette.<br><br>
+Quando mi hai baciata,<br>
+non ho pensato “finalmente”.<br><br>
+<strong>Ecco.</strong>
+</p>
+<button onclick="back()">Torna al corridoio</button>
+</div>
+
+<div class="room" id="room4">
+<p>
+Ci siamo conosciuti davvero.<br>
+Non nella perfezione,<br>
+ma nella verità.<br><br>
+Ridendo.<br>
+Mangiando bene.<br>
+Correndo dalle vespe come due pazzi.
+</p>
+<button onclick="back()">Torna al corridoio</button>
+</div>
+
+<div class="room" id="room5">
+<p>
+Ora sono lontana.<br>
+Ma non mi sento sola.<br><br>
+Perché so dove tornare.<br>
+E so con chi.
+</p>
+<button onclick="back()">Torna al corridoio</button>
+</div>
+
+<div class="room" id="room6">
+<p>
+Non so cosa ci aspetta.<br>
+Ma so cosa voglio.<br><br>
+Sceglierti.<br>
+Ogni giorno.
+</p>
+
+<p class="small">
+🎶 These Walls – Kendrick Lamar
+</p>
+
+<audio controls autoplay>
+    <source src="these_walls.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'audio.
+</audio>
+
+<p class="small">
+Buon Natale, Mitch.<br>
+Torno presto.<br>
+Isabelle ❤️
+</p>
+</div>
+
+<script>
+// Funzione porte
+function openRoom(n) {
+    document.getElementById("corridor").classList.remove("active");
+    document.querySelectorAll(".room").forEach(r => r.classList.remove("active"));
+    document.getElementById("room" + n).classList.add("active");
+}
+
+// Torna al corridoio
+function back() {
+    document.querySelectorAll(".room").forEach(r => r.classList.remove("active"));
+    document.getElementById("corridor").classList.add("active");
+}
+
+// Neve
+const snow = document.getElementById("snow");
+for(let i=0;i<50;i++){
+    const flake = document.createElement("div");
+    flake.classList.add("snowflake");
+    flake.style.left = Math.random()*100 + "vw";
+    flake.style.animationDuration = (5+Math.random()*5) + "s";
+    flake.style.fontSize = (10+Math.random()*20) + "px";
+    flake.innerHTML = "❄";
+    snow.appendChild(flake);
+}
+</script>
+
+</body>
+</html>
